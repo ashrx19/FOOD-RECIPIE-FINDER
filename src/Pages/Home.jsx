@@ -1,29 +1,40 @@
 import { useEffect, useState } from "react"
+import RecipieCard from "../components/RecipeCard"
 
-function Home(){
+function Home() {
 
-    const [search,setSearch] = useState("")
+    const [search, setSearch] = useState("")
     // const [recipes,setRecipes] = useState([{id:1,name:"Ashwin"},{id:2, name:"kishan"}])
-    const [recipies,setRecipies] = useState([])
+    const [recipies, setRecipies] = useState([])
 
-    useEffect(()=>{
-        const getRecipies= async()=>{
-            const response = (await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=chicken"))
+    useEffect(() => {
+        const getRecipies = async () => {
+
+            const response = (await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`))
             const data = await response.json()
-            setRecipies(data.meals)
+            setRecipies(data.meals || [])
         }
         console.log("Fetched")
         getRecipies()
-        
-    },[])
 
-    return(
+    }, [search])
+
+    return (
         <>
-        <h1>Home</h1>
-        <input type="text" placeholder="Search for recipe" onChange={(e)=>{setSearch(e.target.value)}}></input>
-        <h1>{search}</h1>
-        <>{recipies.map((recipie) => (<h2 key={recipie.idMeal}>{recipie.strMeal}</h2>))}</>
-        </>
+            <h1>Home</h1>
+            <input className="Search" type="text" placeholder={search} onChange={(e) => { setSearch(e.target.value) }}></input>
+
+            <>
+                {recipies.length === 0 ? (
+                    <h1>No Recipe Found</h1>
+                ) : (
+                    recipies.map((recipie) => (
+                        <RecipieCard  recipie={recipie} key={recipie.idMeal}>
+                            {recipie.strMeal}
+                        </RecipieCard>
+                    ))
+                )}
+            </>        </>
     )
 }
 
