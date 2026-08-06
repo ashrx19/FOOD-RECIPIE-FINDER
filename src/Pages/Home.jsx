@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import RecipieCard from "../components/RecipeCard"
+import RecipeDetails from '../components/RecipeDetails';
+
 
 function Home() {
 
@@ -19,6 +21,11 @@ function Home() {
 
     }, [search])
 
+    const handleRecipiecardClick=()=>({
+
+
+    })
+
     return (
         <>
             <h1>Home</h1>
@@ -29,8 +36,8 @@ function Home() {
                     <h1>No Recipe Found</h1>
                 ) : (
                     recipies.map((recipie) => (
-                        <RecipieCard  recipie={recipie} key={recipie.idMeal}>
-                            {recipie.strMeal}
+                        <RecipieCard  recipie={recipie} key={recipie.idMeal} onClick={handleRecipiecardClick}>
+                            
                         </RecipieCard>
                     ))
                 )}
