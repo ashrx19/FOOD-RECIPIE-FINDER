@@ -9,6 +9,8 @@ function Home() {
     // const [recipes,setRecipes] = useState([{id:1,name:"Ashwin"},{id:2, name:"kishan"}])
     const [recipies, setRecipies] = useState([])
 
+    
+
     useEffect(() => {
         const getRecipies = async () => {
 
