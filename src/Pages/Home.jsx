@@ -23,10 +23,6 @@ function Home() {
 
     }, [search])
 
-    const handleRecipiecardClick=()=>({
-
-
-    })
 
     return (
         <>
@@ -38,8 +34,7 @@ function Home() {
                     <h1>No Recipe Found</h1>
                 ) : (
                     recipies.map((recipie) => (
-                        <RecipieCard  recipie={recipie} key={recipie.idMeal} onClick={handleRecipiecardClick}>
-                            
+                        <RecipieCard  recipie={recipie} key={recipie.idMeal} >
                         </RecipieCard>
                     ))
                 )}
