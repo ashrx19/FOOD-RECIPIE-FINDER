@@ -1,52 +1,29 @@
-import { use, useEffect,useState } from "react";
+import { useState,useEffect } from "react";
 
-function Home(){
+function Home2(){
 
-    const[search,setSearch] = useState("SEARCH")
+    const[search,setSearch] = useState("Enter the Recipie Name")
     const[recipies,setRecipies] = useState([])
 
     useEffect(()=>{
-        const getRecipies = async()=>{
-            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
-            console.log(response)
+        const getRecipie = async ()=>{
+
+            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
             const data = await response.json()
-            console.log(data.meals)
-            setRecipies(data.meals || [])
-
+            setRecipies( data.meals || [] )
         }
-        console.log("Fetched")
-        getRecipies()
-    },[search])
+        getRecipie()
+    }, [search])
 
-    return(
-        <>
-            <h1>Home</h1>
-            <input className="Search" type="text" placeholder={search} onChange={(e)=>{setSearch(e.target.value)}}></input>
-            {/* <h1>{search}</h1> */}
+    return(<>
+    <h1>Home</h1>
 
-            <>
-            {recipies.length===0?(
-                <h1>NOT FOUND </h1>
-            ):(
-                recipies.map((r)=>(
-                    <div key={r.idMeal}><h2>{r.strMeal}</h2></div>)))
-
-            }
-
-
-
-
-
-            {/* {
-                 recipies.map((r)=>(<div key={r.idMeal}><h2>{r.strMeal}</h2></div>))
-
-            }            */}
-            </>
-        </>
-
-
-    )
-
-
+    <input type="text" placeholder={search} onChange={(e)=>{setSearch(e.target.value) }}/>
+    <>
+        {recipies.map((r)=>(<h1>{r.strMeal}</h1>))}
+    </>
+    
+    </>)
 }
-export default Home
+
+export default Home2
