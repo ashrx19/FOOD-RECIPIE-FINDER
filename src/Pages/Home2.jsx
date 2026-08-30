@@ -15,6 +15,8 @@ function Home2(){
         getRecipie()
     }, [search])
 
+
+    
     return(<>
     <h1>Home</h1>
 
