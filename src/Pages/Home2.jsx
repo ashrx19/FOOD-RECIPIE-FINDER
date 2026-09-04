@@ -18,6 +18,8 @@ function Home2(){
     return(<>
     <h1>Home</h1>
 
+    
+
     <input type="text" placeholder={search} onChange={(e)=>{setSearch(e.target.value) }}/>
     <>
         {recipies.map((r)=>(<h1>{r.strMeal}</h1>))}
