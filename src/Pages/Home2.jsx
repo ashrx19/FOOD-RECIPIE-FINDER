@@ -18,7 +18,6 @@ function Home2(){
     return(<>
     <h1>Home</h1>
 
-    
 
     <input type="text" placeholder={search} onChange={(e)=>{setSearch(e.target.value) }}/>
     <>
