@@ -16,6 +16,7 @@ function Home2(){
     }, [search])
     
     return(<>
+    
     <h1>Home</h1>
 
 
