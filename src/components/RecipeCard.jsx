@@ -12,7 +12,6 @@ function RecipeDetails() {
             );
 
             const data = await response.json();
-
             setRecipie(data.meals?.[0] || null);
         };
 
@@ -64,6 +63,9 @@ function RecipeDetails() {
             </p>
 
             <h2>Ingredients</h2>
+
+
+
 
             <ul>
                 {ingredients.map((item, index) => (
