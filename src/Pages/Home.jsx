@@ -23,6 +23,8 @@ function Home() {
         <>
             <h1>Home</h1>
 
+            <div className="search-container">
+            
             <input
                 className="Search"
                 type="text"
@@ -30,6 +32,7 @@ function Home() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
+            </div>
 
             {recipes.length === 0 ? (
                 <h1>No Recipe Found</h1>

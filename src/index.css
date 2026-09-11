@@ -135,7 +135,15 @@ code {
 }
 
 .Search{
-  margin: 20px 0px 20px 0px;
+  margin: 20px 40px 20px 40px;
+  width: 50%;
+  height: 30px;
+  color: #0a090c;
+  background-color: #e5e4e7;
   
 }
-
+.search-container{
+  display: flex;;
+  align-items: center;
+  justify-content: center;  
+}

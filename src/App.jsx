@@ -1,8 +1,7 @@
 import Home from './Pages/Home'
 
-// import RecipieCard from './components/RecipeCard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import RecipeDetails from './components/RecipeDetails';
+import RecipeDetails from './components/RecipeDetails';
 
 function App() {
 
@@ -12,7 +11,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      {/* <Route path="/recipe/:id" element={<RecipeDetails />} /> */}
+      <Route path="/recipe/:id" element={<RecipeDetails />} />
     </Routes>
     </BrowserRouter>
   
