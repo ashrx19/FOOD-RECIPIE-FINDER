@@ -8,34 +8,34 @@ function RecipeDetails() {
 
     const[recipe,setRecipe]=useState(null);
     
-    useEffect(()=>{
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${id}`)
-        .then((res)=>{res.json})
-        .then((data)=>{console.log(data)
-             setRecipe[data]})
-    },[id]);
+    useEffect(() => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)    .then((res) => res.json())
+    .then((data) => {
+      setRecipe(data.meals ? data.meals[0] : null);
+    });
+}, [id]);
 
-    if (!recipie) return <h2>Loading...</h2>;
+    if (!recipe) return <h2>Not found</h2>;
 
     
   return (
     <div className="RecipeDetails">
-      <h1>{recipie.strMeal}</h1>
+      <h1>{recipe.strMeal}</h1>
 
       <img
-        src={recipie.strMealThumb}
-        alt={recipie.strMeal}
+        src={recipe.strMealThumb}
+        alt={recipe.strMeal}
         width="400"
       />
 
       <h2>Category</h2>
-      <p>{recipie.strCategory}</p>
+      <p>{recipe.strCategory}</p>
 
       <h2>Area</h2>
-      <p>{recipie.strArea}</p>
+      <p>{recipe.strArea}</p>
 
       <h2>Instructions</h2>
-      <p>{recipie.strInstructions}</p>
+      <p>{recipe.strInstructions}</p>
     </div>
   );
 }
