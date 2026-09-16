@@ -1,17 +1,19 @@
 import express from "express"
+import reciperoutes from "./routes/recipeRoutes.js";
 
 const app = express();
 const PORT =5000;
 
 app.use(express.json())
 
-app.get("/api/recipes",(req,res)=>{
-    res.json({
-        "message": "Recipes fetched successfully",
-        "recipes": []
-    })
+app.get("/",(req,res)=>{
+    res.json("Recipie finder backend")
 })
 
+app.use("/api/recipes",reciperoutes)
 
-app.listen(PORT);
+app.listen(PORT ,()=>{
+    console.log(`Server running on http://localhost:${PORT}`);
+
+});
 
