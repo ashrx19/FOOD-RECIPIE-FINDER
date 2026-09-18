@@ -7,7 +7,7 @@ reciperoutes.get("/",async(req,res)=>{
       return res.status(400).json("Enter something for search");
     }
      try{
-        const reqapi = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+        const reqapi = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
         const resapi = await reqapi.json()
         res.json(resapi);
       }catch(err){
