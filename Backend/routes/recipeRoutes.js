@@ -15,6 +15,9 @@ reciperoutes.get("/",async(req,res)=>{
       }
 })
 
+
+
+
 reciperoutes.post("/",(req,res)=>{
     //const data = req.body;
     res.json({"message":"recived successfully",
