@@ -210,3 +210,9 @@ code {
     height: 250px;
   }
 }
+
+.fav-button{
+  background-color:#16171d ;
+  border: none;
+  margin-left: 800px;
+}
