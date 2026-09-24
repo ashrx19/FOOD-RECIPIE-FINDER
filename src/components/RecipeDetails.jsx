@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Heart } from "lucide-react";
+import axios from "axios";
 
 function RecipeDetails() {
 
@@ -12,7 +13,7 @@ function RecipeDetails() {
 
     
     useEffect(() => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)    .then((res) => res.json())
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`) .then((res) => res.json())
     .then((data) => {
       setRecipe(data.meals ? data.meals[0] : null);
     });
@@ -26,24 +27,25 @@ function RecipeDetails() {
         if (!fav) {
 
           // Add favorite
+          setFav(true);
           await axios.post(
             `/api/recipes/fav/${recipe.idMeal}`
           );
-          setFav(true);
 
         } else {
 
           // Remove favorite
+          setFav(false);
           await axios.delete(
             `/api/recipes/fav/${recipe.idMeal}`
           );
-          setFav(false);
         }
 
       } catch (error) {
         console.log(error);
       }
     };
+
 
     
   return (
