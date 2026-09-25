@@ -6,7 +6,7 @@ import axios from "axios";
 function RecipeDetails() {
 
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     const[recipe,setRecipe]=useState(null);
     const [fav, setFav] = useState(false);
