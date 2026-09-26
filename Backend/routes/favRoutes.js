@@ -16,6 +16,7 @@ favRoutes.post("/:id",async(req,res)=>{
     }else{
         favRecipesId.push(newRecipeId);
         
+        
     }
     console.log(favRecipesId);
 })
